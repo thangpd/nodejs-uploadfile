@@ -3,17 +3,28 @@ const multer  = require('multer')
 const upload = multer({ dest: 'uploads/' })
 var cors = require('cors')
 const app = express()
+var formidable = require('formidable');
 app.use(cors())
+app.get('/',function(req,res,next){
+
+  console.log('ok')
+  res.send('ok')
+
+})
 app.post('/profile', upload.single('avatar'), function (req, res, next) {
   // req.file is the `avatar` file
   // req.body will hold the text fields, if there were any
 })
 
-app.post('/fileupload-ajax',cors(), upload.single('file'), function (req, res, next) {
+app.post('/fileupload-ajax', upload.single('file'), function (req, res, next) {
   // req.file is the `avatar` file
   // req.body will hold the text fields, if there were any
-  console.log(req.file)
-//   console.log(req.body)
+  // console.log(req)
+  // console.log('file',req.body.file)
+  
+  // console.log('test',req.body.file[0])
+  
+  // console.log(req.body.file[0])
   
   
 })
